@@ -1,0 +1,13 @@
+<!-- src/app/app.component.html -->
+
+<div class="app-container">
+  <!-- Título de la app (definido en AppComponent) -->
+  <header class="app-header">
+    <h1>{{ title }}</h1>
+  </header>
+
+  <!-- Componente que muestra la lista de artículos paginada -->
+  <app-articles-list></app-articles-list>
+</div>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,8 @@
+{
+  "/conflicts": {
+    "target": "http://localhost:5270",   // ← tu API Gateway
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"                  // (útil si quieres ver el proxy en consola)
+  }
+}
