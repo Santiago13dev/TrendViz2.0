@@ -1,0 +1,26 @@
+# Puerto del servidor
+server:
+  port: 8081
+
+# Intervalo de ejecución de la tarea (ms): 1 hora = 3600000
+fetch:
+  interval-ms: 3600000
+
+# Clave de NewsAPI.org
+newsapi:
+  key: a745b7d79af74daaa7fb03a9dada32c2
+
+# Configuración de InfluxDB
+influx:
+  url: http://localhost:8086
+  database: trendviz
+
+# Configuración de MongoDB
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/trendvizdb
+
+# Clave de OpenWeatherMap (para más adelante)
+weather:
+  apikey: YOUR_OWM_KEY

@@ -1,0 +1,23 @@
+# Maven / Java
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# .NET
+bin/
+obj/
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+
+# Docker
+*.log
+docker-data/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
