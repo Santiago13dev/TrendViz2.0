@@ -32,22 +32,30 @@ Visualiza en tiempo real las noticias de Asia-Pacífico, con métricas de tenden
 | **infra**            | Scripts y contenedores Docker para MongoDB 6 e InfluxDB 1.8, listos con un solo comando.                                                  |
 
 ---
-
 ## 🗺️ Arquitectura
 
-```mermaid
-flowchart LR
-  subgraph Frontend
-    A[Angular 20<br/>http://localhost:4200] -- /conflicts/* --> G
-  end
+> **Nota:** El diagrama Mermaid no se visualiza directamente en GitHub. Aquí tienes una descripción textual de la arquitectura:
 
-  subgraph Backend
-    direction LR
-    G[API Gateway<br/>.NET 8 + Ocelot<br/>http://localhost:5270 / https://localhost:7136] -- REST --> S[Scheduler-Service<br/>Spring Boot 3.5<br/>http://localhost:8081]
-    S -->|writes| M[(MongoDB 6<br/>trendvizdb)]
-    S -->|writes| I[(InfluxDB 1.8<br/>trendviz)]
-  end
-```
+- **Frontend:**  
+  SPA Angular 20 (`http://localhost:4200`)  
+  ↳ Envía peticiones a `/conflicts/*` hacia el API Gateway.
+
+- **API Gateway:**  
+  .NET 8 + Ocelot (`http://localhost:5270` / `https://localhost:7136`)  
+  ↳ Expone endpoints REST y enruta las solicitudes al backend.
+
+- **Scheduler-Service:**  
+  Spring Boot 3.5 (`http://localhost:8081`)  
+  ↳ Consume NewsAPI, guarda artículos en MongoDB y métricas en InfluxDB.
+
+- **Bases de datos:**  
+  - MongoDB 6 (`trendvizdb`)  
+  - InfluxDB 1.8 (`trendviz`)
+
+**Flujo resumido:**  
+Frontend → API Gateway → Scheduler-Service → (MongoDB / InfluxDB)
+
+> Si quieres ver el diagrama visual, ábrelo con un visor compatible con Mermaid o consulta `/docs/arquitectura.png` si está disponible.
 
 ---
 
